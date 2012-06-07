@@ -1,0 +1,36 @@
+<plugin name='cometd' version='0.2.4' grailsVersion='2.0.3 &gt; *'>
+  <author>Marcus Better</author>
+  <authorEmail>marcus@better.se</authorEmail>
+  <title>Ajax push support using CometD</title>
+  <description>CometD is a scalable HTTP-based event routing bus that uses a Ajax Push technology pattern known as Comet.
+This plugin allows your Grails application to send asynchronous notifications to HTTP clients using
+CometD and the Bayeux protocol.
+    </description>
+  <documentation>http://www.grails.org/plugin/cometd</documentation>
+  <type>CometdGrailsPlugin</type>
+  <resources>
+    <resource>CometDPluginResources</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies />
+  <plugins>
+    <runtime>
+      <plugin group='org.grails.plugins' name='resources' version='1.1.6' />
+      <plugin group='org.grails.plugins' name='spring-security-core' version='1.2.7.3' />
+      <plugin group='org.grails.plugins' name='jquery' version='1.7.1' />
+      <plugin group='org.grails.plugins' name='yui-minify-resources' version='0.1.5' />
+      <plugin group='org.grails.plugins' name='hibernate' version='2.0.3' />
+    </runtime>
+    <build>
+      <plugin group='org.grails.plugins' name='tomcat' version='2.0.3' />
+    </build>
+  </plugins>
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>
