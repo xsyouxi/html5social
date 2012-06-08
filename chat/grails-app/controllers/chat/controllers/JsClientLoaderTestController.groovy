@@ -2,7 +2,9 @@ package chat.controllers
 
 import org.springframework.beans.BeanWrapper
 import org.springframework.beans.PropertyAccessorFactory
+import grails.plugins.springsecurity.Secured
 
+@Secured("ROLE_USER")
 class JsClientLoaderTestController {
 
     def index = {
@@ -25,4 +27,5 @@ class JsClientLoaderTestController {
     def desktop_topic_input_controller_test = {}
     def desktop_chat_message_input_controller_test = {}
     def desktop_chat_message_output_controller_test = {}
+    def cometd_handshake_test = {}
 }
