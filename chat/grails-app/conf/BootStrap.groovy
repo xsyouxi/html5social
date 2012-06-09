@@ -47,7 +47,9 @@ class BootStrap {
     }
 
     def setSecurityPolicy = {
-        def authenticator = new BayeuxAuthenticator(springSecurityService: springSecurityService)
+        def authenticator = new BayeuxAuthenticator(
+                springSecurityService: springSecurityService
+        )
         bayeux.setSecurityPolicy(authenticator);
     }
 

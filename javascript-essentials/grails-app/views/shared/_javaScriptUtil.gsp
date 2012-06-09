@@ -1,4 +1,4 @@
-<r:script>
+<r:script disposition="head">
         JavaScriptUtil = {
           urls: {
               root: "${createLinkTo()}/",

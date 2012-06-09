@@ -3,7 +3,7 @@ Ext.define("PublicChat.common.comet.Handshake", {
     initCometD: function () {
         this.addUnsuccessfulListener();
         this.initReloadExtension();
-        this.connect(true);
+        this.connect(false);
     },
 
     connect: function (tryWebSockets) {
@@ -20,6 +20,24 @@ Ext.define("PublicChat.common.comet.Handshake", {
         });
     },
 
+    webSocketConnect: function () {
+        $.cometd.websocketEnabled = true;
+        url = JavaScriptUtil.urls.createWsLink("cometd");
+        $.cometd.configure({
+            url: url
+        });
+        $.cometd.handshake();
+    },
+
+    longPollingConnect: function () {
+        $.cometd.websocketEnabled = false;
+        url = JavaScriptUtil.urls.createHttpLink("cometd");
+        $.cometd.configure({
+            url: url
+        });
+        $.cometd.handshake();
+    },
+
     configure: function (tryWebSockets) {
         var url;
         if (window.WebSocket !== undefined && tryWebSockets) {
@@ -32,14 +50,16 @@ Ext.define("PublicChat.common.comet.Handshake", {
             if (window.console !== undefined) {
                 console.log("Trying long-polling.");
             }
-            $.cometd.websocketEnabled = false;
-            url = JavaScriptUtil.urls.createHttpLink("cometd");
+            this.longPollingConnect();
         }
         $.cometd.configure({
             url: url
         });
     },
 
+    /**
+     * Use  $.cometd.handshake();
+     */
     handshake: function () {
         $.cometd.handshake();
     },

@@ -1,11 +1,13 @@
-<plugin name='javascript-essentials' version='0.1' grailsVersion='2.0.3 &gt; *'>
+<plugin name='javascript-essentials' version='0.1' grailsVersion='2.0.4 &gt; *'>
   <author>Your name</author>
   <title>Javascript Essentials Plugin</title>
   <description>Brief summary/description of the plugin.
 </description>
   <documentation>http://grails.org/plugin/javascript-essentials</documentation>
   <type>JavascriptEssentialsGrailsPlugin</type>
-  <resources />
+  <resources>
+    <resource>JavascriptEssentialsPluginResources</resource>
+  </resources>
   <repositories>
     <repository name='grailsCentral' url='http://plugins.grails.org' />
     <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
@@ -18,12 +20,12 @@
     <runtime>
       <plugin group='org.grails.plugins' name='resources' version='1.1.6' />
       <plugin group='org.grails.plugins' name='spring-security-core' version='1.2.7.3' />
-      <plugin group='org.grails.plugins' name='jquery' version='1.7.1' />
+      <plugin group='org.grails.plugins' name='hibernate' version='2.0.4' />
       <plugin group='org.grails.plugins' name='yui-minify-resources' version='0.1.5' />
-      <plugin group='org.grails.plugins' name='hibernate' version='2.0.3' />
+      <plugin group='org.grails.plugins' name='jquery' version='1.7.1' />
     </runtime>
     <build>
-      <plugin group='org.grails.plugins' name='tomcat' version='2.0.3' />
+      <plugin group='org.grails.plugins' name='tomcat' version='2.0.4' />
     </build>
   </plugins>
   <runtimePluginRequirements />
