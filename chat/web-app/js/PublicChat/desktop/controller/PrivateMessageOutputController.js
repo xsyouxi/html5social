@@ -9,14 +9,17 @@ Ext.define('PublicChat.desktop.controller.PrivateMessageOutputController', {
     ],
 
     mixins: {
-            canPrintMessage: 'PublicChat.desktop.controller.handlers.CanPrintMessage'
+            canPrintMessage: 'PublicChat.desktop.controller.handlers.CanPrintMessage',
+            canSub: 'PublicChat.common.comet.CanSub'
     },
 
     init: function() {
-        $.cometd.subscribe(
-            this.chatService.getUserChannel(),
-            this, this.printPrivateMessage
-        );
+        this.privateChannel = this.subscribe({
+            handler: this.printPrivateMessage,
+            topic: this.chatService.getUserChannel(),
+            scope: this,
+            sub: this.privateChannel
+        });
     }
 
 });

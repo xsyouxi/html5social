@@ -52,9 +52,18 @@ Ext.define("PublicChat.common.comet.Handshake", {
             }
             this.longPollingConnect();
         }
-        $.cometd.configure({
-            url: url
-        });
+
+        if (JavaScriptUtil.system.env === 'production') {
+            $.cometd.configure({
+                url: url
+            });
+        } else {
+            $.cometd.configure({
+                url: url,
+                logLevel: 'debug'
+            });
+        }
+
     },
 
     /**

@@ -1,3 +1,4 @@
+// TODO Break this file up into at least 2 controllers
 Ext.define("PublicChat.desktop.controller.TopicInputController", {
     extend: 'Ext.app.Controller',
 

@@ -13,7 +13,8 @@
               }
           },
           system: {
-              env: '${grails.util.Environment.current.name}'
+              env: '${grails.util.Environment.current.name}',
+              currentUser: '<sec:loggedInUserInfo field="username"/>'
           }
         }
 </r:script>

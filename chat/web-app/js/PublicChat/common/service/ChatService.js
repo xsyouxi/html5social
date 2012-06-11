@@ -10,7 +10,7 @@ Ext.define("PublicChat.common.service.ChatService", {
     },
 
     getUserChannel: function () {
-        return "/privateMessage/" + this.user;
+        return "/privateMessage/" + JavaScriptUtil.system.currentUser;
     },
 
     getPublicChannel: function() {
@@ -43,7 +43,7 @@ Ext.define("PublicChat.common.service.ChatService", {
     },
 
     formatForSendMessage: function (message) {
-        return {username: "test2", message: message};
+        return {message: message};
     },
 
     publicMessage: function (message) {
