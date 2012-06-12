@@ -20,7 +20,16 @@ Ext.define('PublicChat.desktop.controller.UserGridController', {
     openUserIm: function (rowModel, record, index, ops) {
         var userTab = this.getUserTab();
         var username = record.get("username");
-        userTab.add(
+        var tabs = userTab.items.items;
+        var found = false;
+        Ext.each(tabs, function(tab, index, all) {
+            if (tab.title === username) {
+                found = true;
+                return false;
+            }
+        });
+        if (!found) {
+            userTab.add(
                 {
                     xtype: 'textfield',
                     title: username,
@@ -29,7 +38,8 @@ Ext.define('PublicChat.desktop.controller.UserGridController', {
                     enableKeyEvents: true,
                     fieldLabel: 'To (' + username + ')'
                 }
-        );
+            );
+        }
     }
 
 });
