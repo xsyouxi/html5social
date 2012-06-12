@@ -12,8 +12,8 @@ Ext.define("PublicChat.desktop.controller.handlers.CanPrintMessage" , {
     printPrivateMessage: function (message) {
         var dataMessage = message.data;
         var message = dataMessage.message;
-        var title = dataMessage.title;
-        this.printMessage({data: {message: "<span style='color: red;'>message</span>", username: "<span style='color: red;'>title</span>"}});
+        var username = dataMessage.username;
+        this.printMessage({data: {message: "<span style='color: red';>"+message+"</span>", username: "<span style='color: red;'>"+username+"</span>"}});
     }
 
 });
