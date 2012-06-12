@@ -12,6 +12,7 @@ modules = {
         resource url: "js/PublicChat/common/model/Topic.js"
         resource url: "js/PublicChat/common/model/User.js"
         resource url: "js/PublicChat/common/service/ChatService.js"
+        resource url: "js/PublicChat/common/store/UserStore.js"
     }
 
     desktop {

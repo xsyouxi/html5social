@@ -59,8 +59,8 @@ Ext.define("PublicChat.common.comet.Handshake", {
             });
         } else {
             $.cometd.configure({
-                url: url,
-                logLevel: 'debug'
+                url: url//,
+              //  logLevel: 'debug'
             });
         }
 

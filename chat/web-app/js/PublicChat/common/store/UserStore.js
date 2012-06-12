@@ -10,7 +10,7 @@ Ext.define('PublicChat.common.store.UserStore', {
     },
 
     isCurrentUser: function (item) {
-        return item.username === JavascriptUtil.system.currentUser;
+        return item.data.username === JavaScriptUtil.system.currentUser;
     }
 
 });

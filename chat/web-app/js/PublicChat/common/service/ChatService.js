@@ -22,8 +22,7 @@ Ext.define("PublicChat.common.service.ChatService", {
             topicId: "none",
             displayTopic: "none"
         });
-        this.userList = Ext.create('Ext.data.ArrayStore', {
-            model: 'PublicChat.common.model.User',
+        this.userList = Ext.create('PublicChat.common.store.UserStore', {
             storeId: "user-store"
         });
         this.topicList = Ext.create('Ext.data.ArrayStore', {
