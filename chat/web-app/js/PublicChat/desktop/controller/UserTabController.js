@@ -31,8 +31,8 @@ Ext.define('PublicChat.desktop.controller.UserTabController', {
     submitPrivateMessage: function (textField, eventObject, options) {
         if (eventObject.getCharCode() == eventObject.ENTER) {
             var message = textField.getValue();
+            this.printPrivateMessage({data: {message: message, username: JavaScriptUtil.system.currentUser}});
             var username = textField.title;
-            this.printPrivateMessage({data: {message: message, username: username}});
             this.chatService.publishMessage(
                 message,
                 "/privateMessage/" + username
