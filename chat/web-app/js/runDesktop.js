@@ -36,7 +36,6 @@ Ext.application({
                         $.cometd.addListener("/meta/handshake", function(message) {
                             privateMessageOutputController.init();
                             topicInputController.init();
-                            chatService.initTopicListener();
                         });
                     }
                 }

@@ -6,10 +6,12 @@ modules = {
     common {
         dependsOn 'cometd, extjsGray'
         defaultBundle false
+        resource url: "js/PublicChat/common/util/InitParams.js"
         resource url: "js/PublicChat/common/comet/Handshake.js"
         resource url: "js/PublicChat/common/comet/CanSub.js"
         resource url: "js/PublicChat/common/model/Message.js"
         resource url: "js/PublicChat/common/model/Topic.js"
+        resource url: "js/PublicChat/common/store/TopicStoreListener.js"
         resource url: "js/PublicChat/common/model/User.js"
         resource url: "js/PublicChat/common/service/ChatService.js"
         resource url: "js/PublicChat/common/store/UserStore.js"

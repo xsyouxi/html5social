@@ -23,9 +23,9 @@ class JsClientLoaderTestController {
         } 
         [actionNames: actionNames]
     }
-    def chat_service_test = { }    
-    def desktop_topic_input_controller_test = {}
-    def desktop_chat_message_input_controller_test = {}
-    def desktop_chat_message_output_controller_test = {}
+
     def cometd_handshake_test = {}
+    def topic_store_listener_test = {}
+    def topic_store_spec_with_handshake = {}
+    def initParams = {}
 }

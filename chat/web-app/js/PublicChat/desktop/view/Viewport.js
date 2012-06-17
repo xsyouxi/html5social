@@ -19,7 +19,7 @@ Ext.define('PublicChat.desktop.view.Viewport', {
             xtype: 'user-grid'
         },
         {
-            store: 'topic-store',
+           // store: 'topic-store',
             width: 200,
             region: 'west',
             xtype: 'topic-grid'

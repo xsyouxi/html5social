@@ -8,35 +8,44 @@ class TopicListingService {
     static transactional = false
 
     def isChatMessageChannel(channel) {
-        if (channel.id.contains(CHAT_MESSAGE_CHANNEL)) {
-            return true;
-        } else {
-            return false
-        }
+        channel.id.contains(CHAT_MESSAGE_CHANNEL)
     }
 
     def publishAllTopics(bayeux, session, channel, unsubscribed) {
         def channels = getTopicObjects(bayeux, session)
+       /*
         def topicChannel;
-        if (getNumberOfSubscribers(channel) == 1 && unsubscribed) {
+        if (channel.subscribers.size() == 1 && unsubscribed) {
             topicChannel = channel
         } else {
             topicChannel = bayeux.getChannel(TOPIC_CHANNEL)
         }
+        */
+        def topicChannel = bayeux.getChannel(TOPIC_CHANNEL)
         topicChannel.publish(session, channels, null)
-
+        channel.publish(session, channels, null)
     }
 
     def getNumberOfSubscribers(channel) {
-        channel.subscribers.size()
+        def sessions = channel.subscribers.toArray()
+        sessions = sessions.collect{ session ->
+            try {
+                session.getAttribute("username")
+            } catch (all) {
+                println all
+            }
+        }
+        sessions = sessions.unique()
+        def size = sessions.size()
+        size
     }
 
     def getTopicObjects(bayeux, session) {
         def channels = bayeux.getChannels()
-        channels = channels.findAll { channel ->
+        def chatChannels = channels.findAll { channel ->
             isChatMessageChannel(channel)
         }
-        channels = channels.collect { channel ->
+        def infoChannels = chatChannels.collect { channel ->
             def topic = channel.getId().toString()
             def numUsers = getNumberOfSubscribers(channel)
             topic = topic.stripIndent(CHAT_MESSAGE_CHANNEL.length())
@@ -45,5 +54,6 @@ class TopicListingService {
                     numUsers: numUsers
             ]
         }
+        infoChannels
     }
 }

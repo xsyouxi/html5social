@@ -27,7 +27,7 @@ class UserSessionService {
   def allUserNames () {
       def sessions = bayeux.sessions
       def userNames = sessions*.getAttribute("username")
-      userNames
+      userNames.unique()
   }
 
 }

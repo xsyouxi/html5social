@@ -21,11 +21,11 @@ CometD and the Bayeux protocol.
   <dependencies />
   <plugins>
     <runtime>
-      <plugin group='org.grails.plugins' name='resources' version='1.1.6' />
-      <plugin group='org.grails.plugins' name='spring-security-core' version='1.2.7.3' />
-      <plugin group='org.grails.plugins' name='hibernate' version='2.0.4' />
       <plugin group='org.grails.plugins' name='yui-minify-resources' version='0.1.5' />
+      <plugin group='org.grails.plugins' name='spring-security-core' version='1.2.7.3' />
+      <plugin group='org.grails.plugins' name='resources' version='1.1.6' />
       <plugin group='org.grails.plugins' name='jquery' version='1.7.1' />
+      <plugin group='org.grails.plugins' name='hibernate' version='2.0.4' />
     </runtime>
     <build>
       <plugin group='org.grails.plugins' name='tomcat' version='2.0.4' />
