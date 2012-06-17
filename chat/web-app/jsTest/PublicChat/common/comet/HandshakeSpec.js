@@ -29,4 +29,39 @@ describe("Test a handshake to cometd. This assumes the user has logged in.", fun
         });
     });
 
+
+    it("test that the init method is called on all objects that need to sub", function () {
+        var hasConnected1 = false,
+            hasConnected2 = false,
+            hasConnected3 = false;
+
+        handshake.longPollingConnect({
+            subAble: [
+                {
+                    init: function () {
+                       hasConnected1 = true;
+                    }
+                },
+                {
+                    init: function () {
+                        hasConnected2 = true;
+                    }
+                },
+                {
+                    init: function () {
+                        hasConnected3 = true;
+                    }
+                }
+            ]
+        });
+
+        waitsFor(function () {
+            return hasConnected1 && hasConnected2 && hasConnected3;
+        });
+
+        runs(function () {
+            expect(hasConnected1 && hasConnected2 && hasConnected3).toBeTruthy();
+        });
+    });
+
 });

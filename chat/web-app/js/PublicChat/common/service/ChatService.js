@@ -8,10 +8,6 @@ Ext.define("PublicChat.common.service.ChatService", {
         canSub: 'PublicChat.common.comet.CanSub'
     },
 
-    getAllTopicsChannel:function () {
-        return PublicChat.common.service.ChatService.TOPIC_LIST;
-    },
-
     getUserChannel:function () {
         return "/privateMessage/" + JavaScriptUtil.system.currentUser;
     },

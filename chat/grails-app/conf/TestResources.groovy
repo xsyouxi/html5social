@@ -18,9 +18,4 @@ modules = {
         resource url: 'jsTest/PublicChat/common/store/TopicStoreSpecWithHandshake.js'
     }
 
-    initParams {
-        defaultBundle false
-        dependsOn 'cometd, extjs, common, jasmine'
-        resource url: 'jsTest/PublicChat/common/util/InitParamsSpec.js'
-    }
 }

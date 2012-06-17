@@ -1,9 +1,5 @@
 Ext.define("PublicChat.common.comet.Handshake", {
 
-    mixins: {
-       canInitParams: 'PublicChat.common.util.InitParams'
-    },
-
     initCometD: function () {
         this.addUnsuccessfulListener();
         this.initReloadExtension();
@@ -34,7 +30,9 @@ Ext.define("PublicChat.common.comet.Handshake", {
     },
 
     longPollingConnect: function (params) {
-        this.initParams(params);
+        if (Ext.isDefined(params) && Ext.isDefined(params.subAble)) {
+            this.subAble = params.subAble;
+        }
         this.initSubAbles();
         $.cometd.websocketEnabled = false;
         url = JavaScriptUtil.urls.createHttpLink("cometd");

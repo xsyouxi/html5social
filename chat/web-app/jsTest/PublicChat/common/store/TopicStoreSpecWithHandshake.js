@@ -21,10 +21,12 @@ describe("Test the TopicStoreListener while it has a connection to the server.",
                 }
             ]
         });
-       // store = Ext.data.StoreManager.lookup("topic-store");
-       // store.on("update", function () {
-       //    update = true;
-       // });
+        /*
+        store = Ext.data.StoreManager.lookup("topic-store");
+        store.on("update", function () {
+           update = true;
+        });
+        */
     });
 
     afterEach(function () {
@@ -33,11 +35,13 @@ describe("Test the TopicStoreListener while it has a connection to the server.",
     });
 
     it("Test that the server returns a topic.", function () {
+
         waitsFor(function () {
             return connected;
         });
         runs(function () {
-            expect(store.count()).toBe(1);
+            expect(false).toBe(true);
+            //expect(store.count()).toBe(1);
         });
 
     });

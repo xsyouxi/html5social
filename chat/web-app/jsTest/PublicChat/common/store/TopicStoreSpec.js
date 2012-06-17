@@ -1,4 +1,4 @@
-describe("Test that the user gets a response of all topics.", function() {
+describe("Unit test for the Topic Store.", function() {
 
     var topicStoreListener,
         store;

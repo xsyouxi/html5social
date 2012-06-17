@@ -27,5 +27,5 @@ class JsClientLoaderTestController {
     def cometd_handshake_test = {}
     def topic_store_listener_test = {}
     def topic_store_spec_with_handshake = {}
-    def initParams = {}
+
 }
