@@ -1,10 +1,11 @@
 describe("Test the TopicStoreListener while it has a connection to the server.", function() {
 
-    var topicStoreListener,
-        handshake,
-        store,
-        connected = false
-        update = false;
+    var topicStoreListener;
+    var canSub = Ext.create("PublicChat.common.comet.CanSub");
+    var handshake;
+    var store;
+    var connected = false;
+    var update = false;
 
     beforeEach(function () {
         handshake = Ext.create("PublicChat.common.comet.Handshake");
@@ -15,18 +16,27 @@ describe("Test the TopicStoreListener while it has a connection to the server.",
         handshake.longPollingConnect({
             subAble: [
                 topicStoreListener, {
-                    init: function () {
+                    sub: function () {
+                        var sub = canSub.subscribe({
+                            handler: function () {
+
+                            },
+                            sub:sub,
+                            topic: "/chatMessage/none",
+                            scope: sub
+                        });
                         connected = true;
                     }
                 }
             ]
         });
-        /*
+
         store = Ext.data.StoreManager.lookup("topic-store");
-        store.on("update", function () {
+        store.on("datachanged", function () {
            update = true;
         });
-        */
+
+
     });
 
     afterEach(function () {
@@ -35,14 +45,13 @@ describe("Test the TopicStoreListener while it has a connection to the server.",
     });
 
     it("Test that the server returns a topic.", function () {
-
         waitsFor(function () {
-            return connected;
+            return connected && update;
         });
         runs(function () {
-            expect(false).toBe(true);
-            //expect(store.count()).toBe(1);
+            expect(store.count()).toBe(1);
         });
+
 
     });
 

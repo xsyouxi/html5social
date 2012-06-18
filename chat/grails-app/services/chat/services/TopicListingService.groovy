@@ -13,17 +13,13 @@ class TopicListingService {
 
     def publishAllTopics(bayeux, session, channel, unsubscribed) {
         def channels = getTopicObjects(bayeux, session)
-       /*
         def topicChannel;
-        if (channel.subscribers.size() == 1 && unsubscribed) {
+        if (getNumberOfSubscribers(channel) == 1 && unsubscribed) {
             topicChannel = channel
         } else {
             topicChannel = bayeux.getChannel(TOPIC_CHANNEL)
         }
-        */
-        def topicChannel = bayeux.getChannel(TOPIC_CHANNEL)
         topicChannel.publish(session, channels, null)
-        channel.publish(session, channels, null)
     }
 
     def getNumberOfSubscribers(channel) {

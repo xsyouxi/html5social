@@ -27,7 +27,11 @@ Ext.application({
                 chatService: chatService
             });
 
-            Ext.create('PublicChat.desktop.view.Viewport', {
+            var topicStoreListener = Ext.create("PublicChat.common.store.TopicStoreListener", {
+                storeId: "topic-store"
+            });
+
+        Ext.create('PublicChat.desktop.view.Viewport', {
                 listeners: {
                     afterrender: function (viewport, ops) {
                         topicGridController.init();
@@ -35,6 +39,7 @@ Ext.application({
                         userTabController.init();
                         $.cometd.addListener("/meta/handshake", function(message) {
                             privateMessageOutputController.init();
+                            topicStoreListener.sub();
                             topicInputController.init();
                         });
                     }

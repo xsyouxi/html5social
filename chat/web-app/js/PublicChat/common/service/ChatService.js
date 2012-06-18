@@ -17,11 +17,11 @@ Ext.define("PublicChat.common.service.ChatService", {
     },
 
     constructor:function (config) {
-        // TODO all stores should be initialized in the runDesktop.js and accessed via the ext model manager
         this.topic = Ext.create("PublicChat.common.model.Topic", {
             topicId:"none",
             displayTopic:"none"
         });
+        // TODO Create UserStoreListener and remove logic from ChatService.
         this.userList = Ext.create('PublicChat.common.store.UserStore', {
             storeId:"user-store"
         });

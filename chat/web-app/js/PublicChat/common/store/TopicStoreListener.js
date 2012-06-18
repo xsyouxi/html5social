@@ -4,8 +4,8 @@ Ext.define('PublicChat.common.store.TopicStoreListener', {
         TOPIC_LIST:"/topicList/allTopics"
     },
 
-    mixins: {
-        canSub: 'PublicChat.common.comet.CanSub'
+    mixins:{
+        canSub:'PublicChat.common.comet.CanSub'
     },
 
     constructor:function (config) {
@@ -16,12 +16,12 @@ Ext.define('PublicChat.common.store.TopicStoreListener', {
         });
     },
 
-    init:function () {
+    sub:function () {
         this.topicListChannel = this.subscribe({
-            handler:this.updateTopicList,
+            handler:this.update,
             topic:PublicChat.common.store.TopicStoreListener.TOPIC_LIST,
             scope:this,
-            sub: this.topicListChannel
+            sub:this.topicListChannel
         });
     },
 
@@ -32,7 +32,7 @@ Ext.define('PublicChat.common.store.TopicStoreListener', {
             topics.push(
                 Ext.create("PublicChat.common.model.Topic", {
                     topicId:topic.topic,
-                    displayTopic: this.replaceAll(topic.topic, ",", " "),
+                    displayTopic:this.replaceAll(topic.topic, ",", " "),
                     numUsers:topic.numUsers
                 })
             );

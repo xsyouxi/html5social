@@ -64,7 +64,7 @@ Ext.define("PublicChat.common.comet.Handshake", {
         } else {
             $.cometd.configure({
                 url: url//,
-              //  logLevel: 'debug'
+               // logLevel: 'debug'
             });
         }
 
@@ -74,7 +74,7 @@ Ext.define("PublicChat.common.comet.Handshake", {
         var inits = this.subAble;
         $.cometd.addListener("/meta/handshake", function(message) {
             Ext.each(inits, function(initObj) {
-                initObj.init();
+                initObj.sub();
             });
         });
     },

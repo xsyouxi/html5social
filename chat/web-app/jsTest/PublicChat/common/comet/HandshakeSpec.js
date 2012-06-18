@@ -38,17 +38,17 @@ describe("Test a handshake to cometd. This assumes the user has logged in.", fun
         handshake.longPollingConnect({
             subAble: [
                 {
-                    init: function () {
+                    sub: function () {
                        hasConnected1 = true;
                     }
                 },
                 {
-                    init: function () {
+                    sub: function () {
                         hasConnected2 = true;
                     }
                 },
                 {
-                    init: function () {
+                    sub: function () {
                         hasConnected3 = true;
                     }
                 }
