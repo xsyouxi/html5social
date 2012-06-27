@@ -1,6 +1,11 @@
 Ext.define("PublicChat.common.comet.Handshake", {
 
+    statics:{
+        MAX_FAILURES: 10
+    },
+
     initCometD: function () {
+        this.failures = 0;
         this.addUnsuccessfulListener();
         this.initReloadExtension();
         this.connect(false);
@@ -81,6 +86,10 @@ Ext.define("PublicChat.common.comet.Handshake", {
 
     addUnsuccessfulListener: function () {
         $.cometd.addListener('/meta/unsuccessful', this, function(message) {
+            this.failures = this.failures + 1;
+            if (this.failures >= PublicChat.common.comet.Handshake.MAX_FAILURES) {
+                document.location = JavaScriptUtil.urls.root + "logout";
+            }
             this.connect(false);
         });
     }
