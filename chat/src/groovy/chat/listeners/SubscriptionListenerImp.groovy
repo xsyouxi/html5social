@@ -14,19 +14,16 @@ class SubscriptionListenerImp implements SubscriptionListener {
   def topicListingService
   def bayeux
 
+  // TODO when a user changes to a different room all sessions must switch over to that room
   void subscribed (ServerSession session, ServerChannel channel) {
     if (topicListingService.isChatMessageChannel(channel)) {
-      userSessionService.updateUserList(channel, session)
-      topicListingService.publishAllTopics(bayeux, session, channel, false)
+       topicListingService.publishNewSubAllTopics(bayeux, session, channel)
+       userSessionService.updateUserList(channel, session)
     }
-
   }
 
   void unsubscribed (ServerSession session, ServerChannel channel) {
-     if (topicListingService.isChatMessageChannel(channel)) {
-       userSessionService.updateUserList(channel, session)
-       topicListingService.publishAllTopics(bayeux, session, channel, true)
-    }
+
   }
 
 }

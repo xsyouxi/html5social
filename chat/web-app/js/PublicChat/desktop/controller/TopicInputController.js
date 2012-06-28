@@ -61,6 +61,16 @@ Ext.define("PublicChat.desktop.controller.TopicInputController", {
        var topicField = this.getTopicInputField();
        topicField.on("keyup", this.updateTopic, this);
        this.setTopic();
+    },
+
+    // TODO keep the different user tabs in sync
+    sub: function () {
+        this.privateChannel = this.subscribe({
+            handler: this.printPrivateMessage,
+            topic: this.chatService.getUserChannel() + "/sessionUpdatex`",
+            scope: this,
+            sub: this.privateChannel
+        });
     }
 
 });

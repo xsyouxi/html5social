@@ -11,15 +11,20 @@ class TopicListingService {
         channel.id.contains(CHAT_MESSAGE_CHANNEL)
     }
 
-    def publishAllTopics(bayeux, session, channel, unsubscribed) {
-        def channels = getTopicObjects(bayeux, session)
-        def topicChannel;
-        if (getNumberOfSubscribers(channel) == 1 && unsubscribed) {
-            topicChannel = channel
-        } else {
-            topicChannel = bayeux.getChannel(TOPIC_CHANNEL)
-        }
+    def publishNewSubAllTopics(bayeux, session, channel) {
+        removeOldSubscriptions(session, channel)
+        def channels = getTopicObjects(bayeux, session, channel)
+        def topicChannel = bayeux.getChannel(TOPIC_CHANNEL)
         topicChannel.publish(session, channels, null)
+    }
+
+    private def removeOldSubscriptions (session, channel) {
+        def subscriptions = session.subscriptions
+        for (def serverChannel : subscriptions) {
+            if ( isChatMessageChannel(serverChannel) && !serverChannel.equals(channel)) {
+                serverChannel.unsubscribe(session)
+            }
+        }
     }
 
     def getNumberOfSubscribers(channel) {
@@ -36,7 +41,7 @@ class TopicListingService {
         size
     }
 
-    def getTopicObjects(bayeux, session) {
+    def getTopicObjects(bayeux, session, userChannel) {
         def channels = bayeux.getChannels()
         def chatChannels = channels.findAll { channel ->
             isChatMessageChannel(channel)

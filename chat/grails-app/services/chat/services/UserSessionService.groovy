@@ -24,6 +24,26 @@ class UserSessionService {
     user
   }
 
+  def getUserChannels (username) {
+     def userSessions = getUserSessions(username)
+     def userChannels = []
+      userSessions.each { session ->
+        def sessionChannels = session.getSubscriptions()
+        sessionChannels.each { channel ->
+            userChannels.add(channel)
+        }
+     }
+    userChannels
+  }
+
+  def getUserSessions (username) {
+     def sessions = bayeux.sessions
+     def userSessions = sessions.findAll { session ->
+         session.getAttribute("username").equals(username)
+     }
+  }
+
+
   def allUserNames () {
       def sessions = bayeux.sessions
       def userNames = sessions*.getAttribute("username")
