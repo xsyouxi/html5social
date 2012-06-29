@@ -12,24 +12,31 @@ class TopicListingService {
     }
 
     def publishNewSubAllTopics(bayeux, session, channel) {
-        removeOldSubscriptions(session, channel)
+        removeOldSubscriptions(session, channel, bayeux)
         def channels = getTopicObjects(bayeux, session, channel)
         def topicChannel = bayeux.getChannel(TOPIC_CHANNEL)
         topicChannel.publish(session, channels, null)
     }
 
-    private def removeOldSubscriptions (session, channel) {
-        def subscriptions = session.subscriptions
-        for (def serverChannel : subscriptions) {
-            if ( isChatMessageChannel(serverChannel) && !serverChannel.equals(channel)) {
-                serverChannel.unsubscribe(session)
+    private def removeOldSubscriptions(session, channel, bayeux) {
+        def sessions = bayeux.sessions
+        def userName = session.getAttribute("username")
+        for (def serverSession : sessions) {
+            def serverSessionUsername = serverSession.getAttribute("username")
+            if (serverSessionUsername.equals(userName)) {
+                def subscriptions = serverSession.subscriptions
+                for (def serverChannel : subscriptions) {
+                    if (isChatMessageChannel(serverChannel) && !serverChannel.equals(channel)) {
+                        serverChannel.unsubscribe(serverSession)
+                    }
+                }
             }
         }
     }
 
     def getNumberOfSubscribers(channel) {
         def sessions = channel.subscribers.toArray()
-        sessions = sessions.collect{ session ->
+        sessions = sessions.collect { session ->
             try {
                 session.getAttribute("username")
             } catch (all) {
