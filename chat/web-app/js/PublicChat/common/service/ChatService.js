@@ -1,7 +1,8 @@
 Ext.define("PublicChat.common.service.ChatService", {
 
     statics:{
-        MESSAGE_CHANNEL:"/chatMessage/"
+        MESSAGE_CHANNEL:"/chatMessage/",
+        PRIVATE_CHANNEL: "/privateMessage/"
     },
 
     mixins: {
@@ -9,7 +10,7 @@ Ext.define("PublicChat.common.service.ChatService", {
     },
 
     getUserChannel:function () {
-        return "/privateMessage/" + JavaScriptUtil.system.currentUser;
+        return PublicChat.common.service.ChatService.PRIVATE_CHANNEL  + JavaScriptUtil.system.currentUser;
     },
 
     getPublicChannel:function () {

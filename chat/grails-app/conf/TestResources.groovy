@@ -18,4 +18,10 @@ modules = {
         resource url: 'jsTest/PublicChat/common/store/TopicStoreSpecWithHandshake.js'
     }
 
+    private_im_security_test {
+        defaultBundle false
+        dependsOn 'cometd, extjs, common, jasmine'
+        resource url: 'jsTest/PublicChat/common/comet/PrivateImSecurityTest.js'
+    }
+
 }

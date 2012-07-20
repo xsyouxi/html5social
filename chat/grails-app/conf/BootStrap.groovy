@@ -5,6 +5,13 @@ import chat.domain.User
 import chat.domain.UserRole
 import org.cometd.websocket.server.WebSocketTransport
 import chat.extensions.ChatUsernameExtension
+import org.cometd.server.authorizer.GrantAuthorizer
+import org.cometd.bayeux.server.ServerChannel
+import chat.security.PrivateAuthorizer
+import org.cometd.bayeux.server.Authorizer
+import org.cometd.bayeux.ChannelId
+import org.cometd.bayeux.server.ServerMessage
+import org.cometd.bayeux.server.ServerSession
 
 
 class BootStrap {
@@ -29,9 +36,21 @@ class BootStrap {
     def initBayeux = {
         configureWebSockets()
         setSecurityPolicy()
+        securePrivateChannel()
         initListeners()
         configureExtensions()
         bayeux.doStart()
+    }
+
+
+    def securePrivateChannel() {
+        def privateMessage = "/privateMessage/**"
+        bayeux.createIfAbsent(privateMessage)
+        ServerChannel privateChannel = bayeux.getChannel(privateMessage)
+        privateChannel.addAuthorizer(GrantAuthorizer.GRANT_NONE)
+        def privateAuthorizer = new PrivateAuthorizer()
+        privateChannel.addAuthorizer(privateAuthorizer)
+
     }
 
     def configureExtensions = {
@@ -48,7 +67,8 @@ class BootStrap {
 
     def setSecurityPolicy = {
         def authenticator = new BayeuxAuthenticator(
-                springSecurityService: springSecurityService
+                springSecurityService: springSecurityService,
+                bayeux: bayeux
         )
         bayeux.setSecurityPolicy(authenticator);
     }
