@@ -12,6 +12,7 @@ import org.cometd.bayeux.server.Authorizer
 import org.cometd.bayeux.ChannelId
 import org.cometd.bayeux.server.ServerMessage
 import org.cometd.bayeux.server.ServerSession
+import chat.security.TopicStoreAuthorizer
 
 
 class BootStrap {
@@ -35,13 +36,42 @@ class BootStrap {
 
     def initBayeux = {
         configureWebSockets()
-        setSecurityPolicy()
-        securePrivateChannel()
+        initSecurity()
         initListeners()
         configureExtensions()
         bayeux.doStart()
     }
 
+    def initSecurity () {
+        setSecurityPolicy()
+        secureAllChannels()
+        securePrivateChannel()
+        secureTopicStoreChannel()
+        allowPublicChannels();
+    }
+
+    def secureTopicStoreChannel() {
+        def topicChannel = "/topicList/allTopics"
+        bayeux.createIfAbsent(topicChannel)
+        topicChannel = bayeux.getChannel(topicChannel)
+        topicChannel.addAuthorizer(GrantAuthorizer.GRANT_NONE)
+        def topicStoreAuthorizer = new TopicStoreAuthorizer()
+        topicChannel.addAuthorizer(topicStoreAuthorizer)
+    }
+
+    def allowPublicChannels() {
+        def publicChannel = "/chatMessage/**"
+        bayeux.createIfAbsent(publicChannel)
+        publicChannel = bayeux.getChannel(publicChannel)
+        publicChannel.addAuthorizer(GrantAuthorizer.GRANT_ALL)
+    }
+
+    def secureAllChannels() {
+        def rootChannel = "/**"
+        bayeux.createIfAbsent(rootChannel)
+        ServerChannel privateChannel = bayeux.getChannel(rootChannel)
+        privateChannel.addAuthorizer(GrantAuthorizer.GRANT_NONE)
+    }
 
     def securePrivateChannel() {
         def privateMessage = "/privateMessage/**"

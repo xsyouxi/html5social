@@ -8,7 +8,7 @@ class TopicListingService {
     static transactional = false
 
     def isChatMessageChannel(channel) {
-        channel.id.contains(CHAT_MESSAGE_CHANNEL)
+        channel.id.contains(CHAT_MESSAGE_CHANNEL) && !channel.id.contains("*")
     }
 
     def publishNewSubAllTopics(bayeux, session, channel) {
