@@ -18,10 +18,10 @@ Ext.define('PublicChat.desktop.controller.UserGridController', {
     },
 
     openUserIm: function (rowModel, record, index, ops) {
-        var userTab = this.getUserTab();
-        var username = record.get("username");
-        var tabs = userTab.items.items;
-        var found = false;
+        var userTab = this.getUserTab(),
+            username = record.get("username"),
+            tabs = userTab.items.items,
+            found = false;
         Ext.each(tabs, function(tab, index, all) {
             if (tab.title === username) {
                 found = true;

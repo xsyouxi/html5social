@@ -1,33 +1,41 @@
 Ext.application({
     name: 'Talk Hot Topic',
     launch: function() {
-            var handshake = Ext.create("PublicChat.common.comet.Handshake");
+            var handshake,
+                chatService,
+                topicInputController,
+                privateMessageOutputController,
+                topicGridController,
+                userTabController,
+                userGridController,
+                topicStoreListener;
+
+            handshake = Ext.create("PublicChat.common.comet.Handshake");
             handshake.initCometD();
 
-            var chatService = Ext.create("PublicChat.common.service.ChatService");
+            chatService = Ext.create("PublicChat.common.service.ChatService");
 
-            var topicInputController = Ext.create("PublicChat.desktop.controller.TopicInputController", {
+            topicInputController = Ext.create("PublicChat.desktop.controller.TopicInputController", {
                 chatService: chatService
             });
 
-            var privateMessageOutputController = Ext.create("PublicChat.desktop.controller.PrivateMessageOutputController", {
+            privateMessageOutputController = Ext.create("PublicChat.desktop.controller.PrivateMessageOutputController", {
                 chatService: chatService
             });
 
-            var topicGridController = Ext.create("PublicChat.desktop.controller.TopicGridController", {
+            topicGridController = Ext.create("PublicChat.desktop.controller.TopicGridController", {
                 chatService: chatService
             });
 
-
-            var userTabController = Ext.create("PublicChat.desktop.controller.UserTabController", {
+            userTabController = Ext.create("PublicChat.desktop.controller.UserTabController", {
                 chatService: chatService
             });
 
-            var userGridController = Ext.create("PublicChat.desktop.controller.UserGridController", {
+            userGridController = Ext.create("PublicChat.desktop.controller.UserGridController", {
                 chatService: chatService
             });
 
-            var topicStoreListener = Ext.create("PublicChat.common.store.TopicStoreListener", {
+            topicStoreListener = Ext.create("PublicChat.common.store.TopicStoreListener", {
                 storeId: "topic-store"
             });
 

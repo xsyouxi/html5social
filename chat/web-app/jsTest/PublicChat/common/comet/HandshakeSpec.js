@@ -13,9 +13,11 @@ describe("Test a handshake to cometd. This assumes the user has logged in.", fun
     });
 
     it("test a single user login has a single session", function () {
-        var hasConnected = false;
+        var hasConnected = false,
+            users;
         $.cometd.addListener("/meta/handshake", function(message) {
-            restService.on("userAllResponse", function (users) {
+            restService.on("userAllResponse", function (data) {
+                users = data;
                 hasConnected = true;
             });
             restService.getUsers();

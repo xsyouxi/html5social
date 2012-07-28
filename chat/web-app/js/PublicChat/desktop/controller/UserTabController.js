@@ -29,10 +29,10 @@ Ext.define('PublicChat.desktop.controller.UserTabController', {
     },
 
     submitPrivateMessage: function (textField, eventObject, options) {
-        if (eventObject.getCharCode() == eventObject.ENTER) {
-            var message = textField.getValue();
+        if (eventObject.getCharCode() === eventObject.ENTER) {
+            var message = textField.getValue(),
+                username = textField.title;
             this.printPrivateMessage({data: {message: message, username: JavaScriptUtil.system.currentUser}});
-            var username = textField.title;
             this.chatService.publishMessage(
                 message,
                 "/privateMessage/" + username
@@ -42,16 +42,16 @@ Ext.define('PublicChat.desktop.controller.UserTabController', {
     },
 
     submitPublicMessage: function (textField, eventObject, options) {
-        if (eventObject.getCharCode() == eventObject.ENTER) {
+        if (eventObject.getCharCode() === eventObject.ENTER) {
             this.chatService.publicMessage(textField.getValue());
             textField.reset();
         }
     },
 
     init: function () {
-        var userTab = this.getUserTab();
+        var userTab = this.getUserTab(),
+            publicTextField = this.getPublicTextField();
         userTab.on("add", this.addKeyUpHandlerHandler, this);
-        var publicTextField = this.getPublicTextField();
         publicTextField.on("keyup", this.submitPublicMessage, this);
     }
 

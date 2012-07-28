@@ -12,6 +12,11 @@
                   return orign.replace('http:', 'ws:').replace('https:', 'wss:') + this.root + url;
               }
           },
+          log: function (message) {
+            if (window.console !== undefined && JavaScriptUtil.system.env !== "production") {
+                console.log(message);
+            }
+          },
           system: {
               env: '${grails.util.Environment.current.name}',
               currentUser: '<sec:loggedInUserInfo field="username"/>'

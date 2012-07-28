@@ -26,8 +26,8 @@ Ext.define('PublicChat.common.store.TopicStoreListener', {
     },
 
     update:function (params) {
-        var topicList = params.data;
-        var topics = [];
+        var topicList = params.data,
+            topics = [];
         Ext.each(topicList, function (topic, index, allItems) {
             topics.push(
                 Ext.create("PublicChat.common.model.Topic", {

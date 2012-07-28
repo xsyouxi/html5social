@@ -4,7 +4,7 @@ Ext.define("PublicChat.common.service.RestService", {
         this.addEvents({
             "userAllResponse" : true
         });
-        this.callParent(arguments)
+        this.callParent(arguments);
     },
 
     getUsers: function () {
@@ -13,7 +13,7 @@ Ext.define("PublicChat.common.service.RestService", {
             url: url,
             scope: this,
             success: function(response, opts) {
-                users = Ext.decode(response.responseText);
+                var users = Ext.decode(response.responseText);
                 this.fireEvent("userAllResponse", users);
             }
         });

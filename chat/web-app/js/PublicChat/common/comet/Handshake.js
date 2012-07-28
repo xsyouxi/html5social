@@ -27,7 +27,7 @@ Ext.define("PublicChat.common.comet.Handshake", {
 
     webSocketConnect: function () {
         $.cometd.websocketEnabled = true;
-        url = JavaScriptUtil.urls.createWsLink("cometd");
+        var url = JavaScriptUtil.urls.createWsLink("cometd");
         $.cometd.configure({
             url: url
         });
@@ -40,7 +40,7 @@ Ext.define("PublicChat.common.comet.Handshake", {
         }
         this.initSubAbles();
         $.cometd.websocketEnabled = false;
-        url = JavaScriptUtil.urls.createHttpLink("cometd");
+        var url = JavaScriptUtil.urls.createHttpLink("cometd");
         $.cometd.configure({
             url: url
         });
@@ -50,15 +50,11 @@ Ext.define("PublicChat.common.comet.Handshake", {
     configure: function (tryWebSockets) {
         var url;
         if (window.WebSocket !== undefined && tryWebSockets) {
-            if (window.console !== undefined) {
-                console.log("Trying web-sockets.");
-            }
+            JavaScriptUtil.log("Trying web sockets.");
             $.cometd.websocketEnabled = true;
             url = JavaScriptUtil.urls.createWsLink("cometd");
         } else {
-            if (window.console !== undefined) {
-                console.log("Trying long-polling.");
-            }
+            JavaScriptUtil.log("Trying long-polling.");
             this.longPollingConnect();
         }
 
@@ -68,8 +64,8 @@ Ext.define("PublicChat.common.comet.Handshake", {
             });
         } else {
             $.cometd.configure({
-                url: url//,
-               // logLevel: 'debug'
+                url: url,
+                logLevel: 'debug'
             });
         }
 

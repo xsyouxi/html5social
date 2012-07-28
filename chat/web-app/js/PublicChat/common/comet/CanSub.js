@@ -1,6 +1,5 @@
 Ext.define("PublicChat.common.comet.CanSub", {
-
-    subscribe: function (params) {
+    subscribe:function (params) {
         if (params.sub !== undefined) {
             $.cometd.unsubscribe(params.sub);
         }
@@ -10,5 +9,4 @@ Ext.define("PublicChat.common.comet.CanSub", {
             params.handler
         );
     }
-
 });

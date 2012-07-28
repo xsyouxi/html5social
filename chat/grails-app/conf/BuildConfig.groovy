@@ -47,7 +47,7 @@ grails.project.dependency.resolution = {
       //  runtime ":zipped-resources:1.0"
       //  runtime ":cached-resources:1.0"
         runtime ":yui-minify-resources:0.1.5"
-      //  compile ":jslint:0.4"
+        compile ":jslint:0.5"
 
         build ":tomcat:$grailsVersion"
        //build ":jetty7:0.3.2"

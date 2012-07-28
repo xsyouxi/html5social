@@ -48,15 +48,17 @@ Ext.define("PublicChat.common.service.ChatService", {
     },
 
     formatTopicId:function (topic) {
-        var splitArray = topic.split(" ");
-        var topicArray = [];
+        var splitArray = topic.split(" "),
+            topicArray = [],
+            topicId;
+
         Ext.each(splitArray, function (keyWord, index, allItems) {
             if (keyWord !== "") {
                 topicArray.push(keyWord);
             }
         }, this);
         topicArray.sort();
-        var topicId = topicArray.toString();
+        topicId = topicArray.toString();
         return topicId.toLowerCase();
     },
 
