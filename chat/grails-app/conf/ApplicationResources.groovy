@@ -19,7 +19,7 @@ modules = {
     desktop {
         dependsOn 'common'
         defaultBundle false
-        resource url: 'js/runDesktop.js'
+        resource url: 'js/PublicChat/runDesktop.js'
         resource url: 'js/PublicChat/desktop/controller/handlers/CanPrintMessage.js'
         resource url: 'js/PublicChat/desktop/controller/handlers/CanUpdateUserList.js'
         resource url: 'js/PublicChat/desktop/controller/PrivateMessageOutputController.js'
