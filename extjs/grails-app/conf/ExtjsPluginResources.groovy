@@ -1,12 +1,11 @@
 modules = {
 
     extjs {
-        resource url: 'js/ext/ext-all-debug.js'
+        resource url: [plugin:'extjs', dir:'js/ext', file:'ext-all-debug.js']
     }
 
     extjsGray {
         dependsOn 'extjs'
-        resource url: 'js/ext/resources/css/ext-all-gray.css'
-
+        resource url: [plugin:'extjs', dir:'js/ext/resources/css', file:'ext-all-gray.css']
     }
 }

@@ -112,10 +112,11 @@ class BootStrap {
     }
 
     def createUsers = {
-        def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
         def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
+        def testerRole = new Role(authority: 'ROLE_TESTER').save(flush: true)
 
-        createUser("me1", userRole)
+        def user = createUser("me1", userRole)
+        UserRole.create user, testerRole, true
         createUser("me2", userRole)
         createUser("me3", userRole)
         createUser("me4", userRole)
@@ -126,6 +127,7 @@ class BootStrap {
         def user = new User(username: username, enabled: true, password: 'password')
         user.save(flush: true)
         UserRole.create user, role, true
+        user
     }
 
 }

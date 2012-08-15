@@ -62,16 +62,16 @@ grails.hibernate.cache.queries = true
 // set per-environment serverURL stem for creating absolute links
 environments {
     development {
-        grails.resources.mappers.yuicssminify.disable=true
-        grails.resources.mappers.yuijsminify.disable=true
-        grails.logging.jul.usebridge = true
+       // grails.resources.mappers.yuicssminify.disable=true
+       // grails.resources.mappers.yuijsminify.disable=true
+       // grails.logging.jul.usebridge = true
     }
     production {
-        grails.resources.mappers.yuicssminify.disable=false
-        grails.resources.mappers.yuijsminify.disable=false
-        grails.logging.jul.usebridge = false
+       // grails.resources.mappers.yuicssminify.disable=false
+       // grails.resources.mappers.yuijsminify.disable=false
+      //  grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
-
+        /*
         grails.resources.modules = {
 
             overrides {
@@ -90,6 +90,7 @@ environments {
 
             }
         }
+        */
     }
 }
 
@@ -119,4 +120,11 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'chat.domain.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'chat.domain.UserRole'
 grails.plugins.springsecurity.authority.className = 'chat.domain.Role'
-//grails.plugins.springsecurity.rejectIfNoRule = true
+           /**
+grails.plugins.springsecurity.controllerAnnotations.staticRules = [
+        '/static/secure/tester/**': ['ROLE_TESTER'],
+        '/static/secure/all/**': ['ROLE_USER']
+]
+
+  */
+
