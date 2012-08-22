@@ -122,8 +122,8 @@ grails.plugins.springsecurity.authority.className = 'chat.domain.Role'
 
 grails.mail.host = "smtp.gmail.com"
 grails.mail.port = 465
-grails.mail.username = ""
-grails.mail.password = ""
+grails.mail.username = "keb1980@gmail.com"
+grails.mail.password = "odpxqdeapikzprxu"
 grails.mail.props = [ "mail.smtp.auth":"true",
                       "mail.smtp.socketFactory.port":"465",
                       "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",

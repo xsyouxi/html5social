@@ -5,11 +5,24 @@ Ext.define('PublicChat.desktop.view.Viewport', {
     layout: 'border',
     items: [
         {
-            store: 'user-store',
-            width: 200,
-            region: 'east',
-            id: 'user-grid',
-            xtype: 'user-grid'
+          region: 'east',
+          layout: {
+               type: 'vbox',
+               align: 'stretch'
+          },
+          items: [
+              {
+                xtype: "button",
+                text: "Sing out: " + JavaScriptUtil.system.currentUser,
+                id: "logout-button"
+              },
+              {
+                  store: 'user-store',
+                  width: 200,
+                  id: 'user-grid',
+                  xtype: 'user-grid'
+              }
+          ]
         },
         {
             store: 'topic-store',

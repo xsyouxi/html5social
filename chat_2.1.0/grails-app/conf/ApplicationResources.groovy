@@ -14,6 +14,7 @@ modules = {
         resource url: "secure/all/js/PublicChat/common/model/User.js"
         resource url: "secure/all/js/PublicChat/common/service/ChatService.js"
         resource url: "secure/all/js/PublicChat/common/store/UserStore.js"
+        resource url: "secure/all/js/PublicChat/common/handlers/LogoutHandler.js"
     }
 
     desktop {
@@ -27,6 +28,7 @@ modules = {
         resource url: 'secure/all/js/PublicChat/desktop/controller/TopicInputController.js'
         resource url: 'secure/all/js/PublicChat/desktop/controller/UserGridController.js'
         resource url: 'secure/all/js/PublicChat/desktop/controller/UserTabController.js'
+        resource url: 'secure/all/js/PublicChat/desktop/controller/LogoutController.js'
         resource url: 'secure/all/js/PublicChat/desktop/view/MessageGridView.js'
         resource url: 'secure/all/js/PublicChat/desktop/view/TopicListView.js'
         resource url: 'secure/all/js/PublicChat/desktop/view/UserListView.js'

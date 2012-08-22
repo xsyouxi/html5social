@@ -13,6 +13,7 @@ Ext.application({
             handshake = Ext.create("PublicChat.common.comet.Handshake");
             handshake.initCometD();
 
+            // TODO remove chat service and replace with mixins
             chatService = Ext.create("PublicChat.common.service.ChatService");
 
             topicInputController = Ext.create("PublicChat.desktop.controller.TopicInputController", {
@@ -39,12 +40,16 @@ Ext.application({
                 storeId: "topic-store"
             });
 
+
+            var logoutController = Ext.create("PublicChat.desktop.controller.LogoutController");
+
         Ext.create('PublicChat.desktop.view.Viewport', {
                 listeners: {
                     afterrender: function (viewport, ops) {
                         topicGridController.init();
                         userGridController.init();
                         userTabController.init();
+                        logoutController.init();
                         $.cometd.addListener("/meta/handshake", function(message) {
                             privateMessageOutputController.init();
                             topicStoreListener.sub();
