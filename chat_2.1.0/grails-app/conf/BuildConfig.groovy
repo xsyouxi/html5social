@@ -48,14 +48,17 @@ grails.project.dependency.resolution = {
         //runtime ":yui-minify-resources:0.1.4"
 
         build ":tomcat:$grailsVersion"
-
         runtime ":database-migration:1.1"
-
         compile ':cache:1.0.0'
-
         runtime ":spring-security-core:1.2.3"
-
         compile ":jslint:0.5"
+
+        // spring security UI
+        compile ":mail:1.0"
+        compile ":jquery-ui:1.8.7"
+        compile ":famfamfam:1.0"
+        compile ":spring-security-ui:0.2"
+
     }
 
     grails.plugin.location.'javascript-essentials' = "../javascript-essentials"

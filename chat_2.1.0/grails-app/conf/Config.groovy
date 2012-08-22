@@ -118,4 +118,15 @@ grails.plugins.springsecurity.authority.className = 'chat.domain.Role'
  '/static/secure/all/**': ['ROLE_USER']
  ]
 
+// Configure Grails Mailer
+
+grails.mail.host = "smtp.gmail.com"
+grails.mail.port = 465
+grails.mail.username = ""
+grails.mail.password = ""
+grails.mail.props = [ "mail.smtp.auth":"true",
+                      "mail.smtp.socketFactory.port":"465",
+                      "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                      "mail.smtp.socketFactory.fallback":"false" ]
+
 
