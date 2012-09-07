@@ -11,24 +11,42 @@ import org.cometd.bayeux.ChannelId
 
 class BayeuxAuthenticator extends DefaultSecurityPolicy {
 
-    def springSecurityService
+    def sessionRegistry
     def bayeux
 
     @Override
     boolean canHandshake(BayeuxServer server, ServerSession session, ServerMessage message) {
-
-        if (session.isLocalSession()) {
-          return true
+        boolean grant = false;
+        try {
+            if (session.isLocalSession()) {
+                grant = true
+            } else {
+                Map<String, Object> ext = message.getExt()
+                Map<String, Object> authentication = (Map<String, Object>) ext.get("authentication");
+                if (authentication != null) {
+                    def clientUsername = authentication.user
+                    def sessionId = authentication.sessionId
+                    if (clientUsername == null || sessionId == null) {
+                        grant = false
+                    } else {
+                        def sessionInformation = sessionRegistry.getSessionInformation(sessionId.toString())
+                        def principle = sessionInformation.getPrincipal()
+                        def sessionUsername = principle.username
+                        if (clientUsername == sessionUsername) {
+                            session.setAttribute("username", sessionUsername)
+                            grant = true
+                        } else {
+                            grant = false
+                        }
+                    }
+                } else {
+                    grant = false
+                }
+            }
+        } catch (e) {
+            grant = false;
+        } finally {
+            return grant
         }
-
-        if (!springSecurityService.isLoggedIn()) {
-             return false;
-        }
-
-        def principle = springSecurityService.getPrincipal()
-        def username = principle.username
-        session.setAttribute("username", username)
-        return true;
     }
-
 }

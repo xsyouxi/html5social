@@ -112,6 +112,7 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'chat.domain.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'chat.domain.UserRole'
 grails.plugins.springsecurity.authority.className = 'chat.domain.Role'
+grails.plugins.springsecurity.useHttpSessionEventPublisher = true
 
  grails.plugins.springsecurity.controllerAnnotations.staticRules = [
  '/static/secure/tester/**': ['ROLE_TESTER'],

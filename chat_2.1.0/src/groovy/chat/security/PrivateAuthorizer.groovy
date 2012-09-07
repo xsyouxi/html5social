@@ -17,6 +17,7 @@ class PrivateAuthorizer implements Authorizer {
         boolean isOwnPrivateChannel =  ( testChannel == channel.toString() )
         // we allow other users to publish to the private channel
         boolean isPublish = operation == Authorizer.Operation.PUBLISH;
+
         if (isOwnPrivateChannel || isPublish) {
             return Authorizer.Result.grant();
         } else {

@@ -1,0 +1,3 @@
+1) Write a test that tries to connect to websockets that has spring secuirty enabled but to where the user
+has not logged in. We will still have to look up the session id to get the username. We can't trust the user
+to send the user name.

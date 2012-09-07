@@ -20,14 +20,20 @@ class BootStrap {
     def bayeux
     def userSessionService
     def topicListingService
-    def springSecurityService
     def channelService
+    def sessionRegistry
 
     def init = { servletContext ->
         initBayeux()
         println "Bayeux init......"
         createUsers()
         println "Users created...."
+        println "Allowed Transports"
+        bayeux.setAllowedTransports(["websocket", "callback-polling", "long-polling"])
+        def transports = bayeux.getAllowedTransports()
+        println transports
+        def transport = bayeux.getTransport("websocket")
+        println transport
     }
 
     def destroy = {
@@ -97,7 +103,7 @@ class BootStrap {
 
     def setSecurityPolicy = {
         def authenticator = new BayeuxAuthenticator(
-                springSecurityService: springSecurityService,
+                sessionRegistry: sessionRegistry,
                 bayeux: bayeux
         )
         bayeux.setSecurityPolicy(authenticator);

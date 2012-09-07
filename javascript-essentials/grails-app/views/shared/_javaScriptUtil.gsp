@@ -19,7 +19,8 @@
           },
           system: {
               env: '${grails.util.Environment.current.name}',
-              currentUser: '<sec:loggedInUserInfo field="username"/>'
+              currentUser: '<sec:loggedInUserInfo field="username"/>',
+              sessionId: "${session.id}"
           }
         }
 </r:script>

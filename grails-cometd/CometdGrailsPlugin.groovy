@@ -48,39 +48,6 @@ CometD and the Bayeux protocol.
     def documentation = "http://www.grails.org/plugin/cometd"
 
     def doWithWebDescriptor = { xml ->
-        //xml.setAttribute('version','3.0')
-        
-        def conf = ConfigurationHolder.config.plugins.cometd
-        if (!conf.continuationFilter.disable) {
-            def filters = xml.'filter'
-            filters[filters.size() - 1] + {
-                filter {
-                    'filter-name'('cross-origin')
-                    'filter-class'('org.eclipse.jetty.servlets.CrossOriginFilter')
-                }
-                /*
-                filter {
-                    'filter-name'('continuation')
-                    'filter-class'('org.eclipse.jetty.continuation.ContinuationFilter')
-                }
-                */
-            }
-            
-            def filterMappings = xml.'filter-mapping'
-            filterMappings[filterMappings.size() - 1] + {
-                'filter-mapping' {
-                    'filter-name'('cross-origin')
-                    'url-pattern'('/cometd/*')
-                }
-                /*
-                'filter-mapping' {
-                    'filter-name'('continuation')
-                    'url-pattern'('/cometd/*')
-                }
-                */
-            }
-        }
-        
         def servlets = xml.'servlet'
         servlets[servlets.size() - 1] + {
             servlet {
@@ -107,7 +74,6 @@ CometD and the Bayeux protocol.
         bayeux(BayeuxServerImpl) { bean ->
 
         }
-
         // the CometdServlet will pick up the Bayeux object from the servlet context
         bayeuxAttributeExporter(ServletContextAttributeExporter) {
             attributes = [(BayeuxServer.ATTRIBUTE): ref('bayeux')]
