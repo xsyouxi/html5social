@@ -1,3 +1,19 @@
 1) Write a test that tries to connect to websockets that has spring secuirty enabled but to where the user
 has not logged in. We will still have to look up the session id to get the username. We can't trust the user
 to send the user name.
+
+2) Compress all the JavaScript and CSS into a single file. Might keep the Ext JS framework out of the bundle.
+
+3) Create a new Gmail account for the app.
+
+4) Deleate your personal access id from your Gmail account.
+
+5) Confirm that you are running the latest Jetty and CometD and test that Websockets works.
+
+6) Get a Linux server and install the latest Jetty.
+
+7) Deploy an Alpha 1.0 onto the server.
+
+8) Setup Google Ad since so you can start getting paied.
+
+9) Start developement of mobile.

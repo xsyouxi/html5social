@@ -66,24 +66,7 @@ environments {
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
-        grails.resources.modules = {
 
-            overrides {
-                desktop {
-                    defaultBundle "desktop-ui"
-                }
-                common {
-                    defaultBundle "desktop-ui"
-                }
-                cometd {
-                    defaultBundle "desktop-ui"
-                }
-                extjs {
-                    defaultBundle "desktop-ui"
-                }
-
-            }
-        }
     }
 }
 

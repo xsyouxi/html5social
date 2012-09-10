@@ -41,19 +41,22 @@ grails.project.dependency.resolution = {
 
     plugins {
         runtime ":hibernate:$grailsVersion"
+
+        compile ":jslint:0.5"
         runtime ":jquery:1.7.2"
         runtime ":resources:1.1.6"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"
-        //runtime ":yui-minify-resources:0.1.4"
+        runtime ":yui-minify-resources:0.1.5"
 
         build ":tomcat:$grailsVersion"
+
         runtime ":database-migration:1.1"
         compile ':cache:1.0.0'
+
         runtime ":spring-security-core:1.2.3"
-        compile ":jslint:0.5"
 
         // spring security UI
         compile ":mail:1.0"
@@ -66,4 +69,5 @@ grails.project.dependency.resolution = {
     grails.plugin.location.'javascript-essentials' = "../javascript-essentials"
     grails.plugin.location.'extjs' = "../extjs"
     grails.plugin.location.'cometd' = "../grails-cometd"
+
 }

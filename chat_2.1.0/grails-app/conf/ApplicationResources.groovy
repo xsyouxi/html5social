@@ -5,7 +5,6 @@ modules = {
 
     common {
         dependsOn 'cometd, extjsGray'
-        defaultBundle false
         resource url: "secure/all/js/PublicChat/common/comet/Handshake.js"
         resource url: "secure/all/js/PublicChat/common/comet/CanSub.js"
         resource url: "secure/all/js/PublicChat/common/model/Message.js"
@@ -19,7 +18,6 @@ modules = {
 
     desktop {
         dependsOn 'common'
-        defaultBundle false
         resource url: 'secure/all/js/PublicChat/runDesktop.js'
         resource url: 'secure/all/js/PublicChat/desktop/controller/handlers/CanPrintMessage.js'
         resource url: 'secure/all/js/PublicChat/desktop/controller/handlers/CanUpdateUserList.js'
