@@ -10,7 +10,6 @@ class User {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
-    String email
 
 	static constraints = {
 		username blank: false, unique: true

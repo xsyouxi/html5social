@@ -6,6 +6,9 @@ import org.cometd.server.authorizer.GrantAuthorizer
 import org.cometd.bayeux.server.ServerChannel
 import chat.security.PrivateAuthorizer
 import chat.security.TopicStoreAuthorizer
+import chat.domain.Role
+import chat.domain.User
+import chat.domain.UserRole
 
 
 class BootStrap {
@@ -17,6 +20,7 @@ class BootStrap {
     def sessionRegistry
 
     def init = { servletContext ->
+        createUsers()
         configureWebSockets()
         initSecurity()
         initListeners()
@@ -27,6 +31,8 @@ class BootStrap {
     def destroy = {
 
     }
+
+    def initDefault
 
     def initSecurity () {
         setSecurityPolicy()
@@ -95,6 +101,25 @@ class BootStrap {
                 topicListingService: topicListingService,
                 bayeux: bayeux
         ))
+    }
+
+    def createUsers = {
+        def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
+        def testerRole = new Role(authority: 'ROLE_TESTER').save(flush: true)
+
+        def user = createUser("me1", userRole)
+        UserRole.create user, testerRole, true
+        createUser("me2", userRole)
+        createUser("me3", userRole)
+        createUser("me4", userRole)
+        createUser("me5", userRole)
+    }
+
+    def createUser(username, role) {
+        def user = new User(username: username, enabled: true, password: 'password')
+        user.save(flush: true)
+        UserRole.create user, role, true
+        user
     }
 
 }
