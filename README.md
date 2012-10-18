@@ -1,4 +1,0 @@
-talkhottopic
-============
-
-Chat Room
