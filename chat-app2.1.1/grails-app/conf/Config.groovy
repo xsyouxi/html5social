@@ -99,7 +99,6 @@ grails.plugins.springsecurity.useHttpSessionEventPublisher = true
 grails.plugins.springsecurity.rejectIfNoRule = true
 grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugins.springsecurity.interceptUrlMap = [
-        // Admins
 
         // Users:
         '/secure/**':                                               ['IS_AUTHENTICATED_FULLY'],
@@ -113,12 +112,17 @@ grails.plugins.springsecurity.interceptUrlMap = [
 
         // Public
         '/register/index':                                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/images/**':                                                ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/login/**':                                                 ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/logout/**':                                                ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/plugins/jquery-ui-1.8.7/**':                               ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/plugins/jquery-1.8.0/**':                                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/plugins/spring-security-ui-0.2/images/**':                 ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/plugins/spring-security-ui-0.2/css/**':                    ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/plugins/spring-security-ui-0.2/js/**':                     ['IS_AUTHENTICATED_ANONYMOUSLY'],
+
+        // Admins
+        '/**':                                                      ['ROLE_ADMIN']
 
 ]
 
