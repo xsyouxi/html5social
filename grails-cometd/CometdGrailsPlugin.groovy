@@ -13,11 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import grails.util.Environment
-
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
-
 import org.cometd.server.BayeuxServerImpl
 import org.cometd.server.CometdServlet
 import org.cometd.bayeux.server.BayeuxServer
@@ -53,11 +48,6 @@ CometD and the Bayeux protocol.
             servlet {
                 'servlet-name'('cometd')
                 'servlet-class'(CometdServlet.class.name)
-               // 'init-param' {
-                //    'param-name'('transports')
-               //     'param-value'('org.cometd.websocket.server.WebSocketTransport')
-               // }
-              //  'load-on-startup' (1)
             }
         }
 

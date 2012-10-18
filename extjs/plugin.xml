@@ -1,16 +1,12 @@
-<plugin name='cometd' version='0.2.4' grailsVersion='2.1.1 &gt; *'>
-  <author>Marcus Better</author>
-  <authorEmail>marcus@better.se</authorEmail>
-  <title>Ajax push support using CometD</title>
-  <description>CometD is a scalable HTTP-based event routing bus that uses a Ajax Push technology pattern known as Comet.
-This plugin allows your Grails application to send asynchronous notifications to HTTP clients using
-CometD and the Bayeux protocol.
-    </description>
-  <documentation>http://www.grails.org/plugin/cometd</documentation>
-  <type>CometdGrailsPlugin</type>
+<plugin name='extjs' version='0.1' grailsVersion='2.1.1 &gt; *'>
+  <author>Your name</author>
+  <title>Extjs Plugin</title>
+  <description>Brief summary/description of the plugin.
+</description>
+  <documentation>http://grails.org/plugin/extjs</documentation>
+  <type>ExtjsGrailsPlugin</type>
   <resources>
-    <resource>CometDPluginResources</resource>
-    <resource>WebSocketBootStrap</resource>
+    <resource>ExtjsPluginResources</resource>
   </resources>
   <repositories>
     <repository name='grailsCentral' url='http://grails.org/plugins' />

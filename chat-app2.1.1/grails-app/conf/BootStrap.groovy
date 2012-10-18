@@ -3,7 +3,6 @@ import chat.listeners.SubscriptionListenerImp
 import chat.domain.Role
 import chat.domain.User
 import chat.domain.UserRole
-import org.cometd.websocket.server.WebSocketTransport
 import chat.extensions.ChatUsernameExtension
 import org.cometd.server.authorizer.GrantAuthorizer
 import org.cometd.bayeux.server.ServerChannel
@@ -37,11 +36,9 @@ class BootStrap {
     }
 
     def initBayeux = {
-        configureWebSockets()
         initSecurity()
         initListeners()
         configureExtensions()
-        bayeux.doStart()
     }
 
     def initSecurity () {
@@ -91,12 +88,6 @@ class BootStrap {
         ))
     }
 
-    def configureWebSockets = {
-        def transport = new WebSocketTransport(bayeux)
-        bayeux.addTransport(transport)
-        bayeux.setAllowedTransports(["websocket", "callback-polling", "long-polling"])
-    }
-
     def setSecurityPolicy = {
         def authenticator = new BayeuxAuthenticator(
                 sessionRegistry: sessionRegistry,
@@ -118,11 +109,14 @@ class BootStrap {
         def testerRole = new Role(authority: 'ROLE_TESTER').save(flush: true)
         def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
 
+        createUser("keithoth", adminRole)
+
         createUser("me1", adminRole)
         createUser("me2", userRole)
         createUser("me3", userRole)
         createUser("me4", userRole)
         createUser("me5", userRole)
+
     }
 
     def createUser(username, role) {
