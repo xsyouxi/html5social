@@ -15,7 +15,7 @@ grails.project.dependency.resolution = {
 
 	dependencies {
 
-		String jettyVersion = '7.6.0.v20120127'
+		String jettyVersion = '8.1.7.v20120910'
 
 		runtime("org.eclipse.jetty.aggregate:jetty-all:$jettyVersion") {
 			transitive = false

@@ -106,7 +106,6 @@ class BootStrap {
 
     def createUsers = {
         def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
-        def testerRole = new Role(authority: 'ROLE_TESTER').save(flush: true)
         def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
 
         createUser("keithoth", adminRole)

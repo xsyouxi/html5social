@@ -100,36 +100,50 @@ grails.plugins.springsecurity.rejectIfNoRule = true
 grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugins.springsecurity.interceptUrlMap = [
         // Admins
-        '/users/**':                  ['ROLE_ADMIN'],
+        '/user/**':                                                  ['ROLE_ADMIN'],
 
         // Users:
-        '/cometd':                                                         ['IS_AUTHENTICATED_FULLY'],
-        '/':                                                               ['IS_AUTHENTICATED_FULLY'],
+        '/cometd':                                                   ['IS_AUTHENTICATED_FULLY'],
+        '/cometd/handshake':                                         ['IS_AUTHENTICATED_FULLY'],
+        '/':                                                         ['IS_AUTHENTICATED_FULLY'],
 
-        '/static/secure/**':                                               ['IS_AUTHENTICATED_FULLY'],
-        '/static/js/**':                                                   ['IS_AUTHENTICATED_FULLY'],
-        '/static/css/**':                                                  ['IS_AUTHENTICATED_FULLY'],
-        '/static/images/**':                                               ['IS_AUTHENTICATED_FULLY'],
-        '/static/plugins/cometd-0.2.4/**':                                 ['IS_AUTHENTICATED_FULLY'],
-        '/static/plugins/extjs-0.1/**':                                    ['IS_AUTHENTICATED_FULLY'],
+        '/secure/**':                                                ['IS_AUTHENTICATED_FULLY'],
+        '/js/**':                                                    ['IS_AUTHENTICATED_FULLY'],
+        '/css/**':                                                   ['IS_AUTHENTICATED_FULLY'],
+        '/images/**':                                                ['IS_AUTHENTICATED_FULLY'],
+        '/plugins/cometd-0.2.4/**':                                  ['IS_AUTHENTICATED_FULLY'],
+        '/plugins/extjs-0.1/**':                                     ['IS_AUTHENTICATED_FULLY'],
+
+        '/static/js/**':                                             ['IS_AUTHENTICATED_FULLY'],
+        '/static/css/**':                                            ['IS_AUTHENTICATED_FULLY'],
+        '/static/images/**':                                         ['IS_AUTHENTICATED_FULLY'],
+        '/static/plugins/cometd-0.2.4/**':                           ['IS_AUTHENTICATED_FULLY'],
+        '/static/plugins/extjs-0.1/**':                              ['IS_AUTHENTICATED_FULLY'],
+        '/static/bundle-bundle_cometd_defer.min.js':                 ['IS_AUTHENTICATED_FULLY'],
+        '/static/bundle-bundle_common_defer.min.js':                 ['IS_AUTHENTICATED_FULLY'],
+        '/static/bundle-bundle_desktop_defer.min.js':                ['IS_AUTHENTICATED_FULLY'],
 
         // Public
-        '/register/index':                                                 ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/login/**':                                                       ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/logout/**':                                                      ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/register/**':                                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/login/**':                                                 ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/logout/**':                                                ['IS_AUTHENTICATED_ANONYMOUSLY'],
 
-        '/static/images/**':                                                ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/images/**':                                                ['IS_AUTHENTICATED_ANONYMOUSLY'],
-
-        '/static/plugins/jquery-ui-1.8.7/**':                               ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/plugins/jquery-ui-1.8.7/**':                               ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/plugins/jquery-1.8.0/**':                                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/plugins/spring-security-ui-0.2/images/**':                 ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/plugins/spring-security-ui-0.2/css/**':                    ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/plugins/spring-security-ui-0.2/js/**':                     ['IS_AUTHENTICATED_ANONYMOUSLY'],
 
-        '/static/plugins/jquery-1.8.0/**':                                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/static/plugins/spring-security-ui-0.2/images/**':                 ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/static/plugins/spring-security-ui-0.2/css/**':                    ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/static/plugins/spring-security-ui-0.2/js/**':                     ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/static/bundle-bundle_register_head.min.css':                       ['IS_AUTHENTICATED_ANONYMOUSLY']
-
+        '/static/images/**':                                         ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/static/plugins/jquery-ui-1.8.7/**':                        ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/static/plugins/jquery-1.8.0/**':                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/static/plugins/spring-security-ui-0.2/images/**':          ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/static/plugins/spring-security-ui-0.2/css/**':             ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/static/plugins/spring-security-ui-0.2/js/**':              ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/static/bundle-bundle_register_head.min.css':               ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/static/bundle-bundle_jquery-ui_defer.js':                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/static/bundle-bundle_register_defer.min.js':               ['IS_AUTHENTICATED_ANONYMOUSLY']
 ]
 
 // Configure Grails Mailer
