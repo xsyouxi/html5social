@@ -13,7 +13,7 @@ Ext.define('PublicChat.desktop.view.Viewport', {
           items: [
               {
                 xtype: "button",
-                text: "Sing out: " + JavaScriptUtil.system.currentUser,
+                text: "Log Out: " + JavaScriptUtil.system.currentUser,
                 id: "logout-button"
               },
               {

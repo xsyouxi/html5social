@@ -4,7 +4,7 @@ grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
-//grails.project.war.file = "target/${appName}-${appVersion}.war"
+grails.project.war.file = "/Users/kblanchard/side_projects/jetty-hightide-8.1.7.v20120910/webapps/ROOT.war"
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
