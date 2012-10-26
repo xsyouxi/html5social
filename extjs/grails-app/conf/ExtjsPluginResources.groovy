@@ -1,20 +1,12 @@
 modules = {
 
-    extjs {
-        resource url: [plugin:'extjs', dir:'js/ext', file:'ext-all-debug.js']
+    extjs_4_1_1a_gray_min {
+        resource url: [plugin:'extjs', dir:'ext-4.1.1a', file:'ext-all.js']
+        resource url: [plugin:'extjs', dir:'ext-4.1.1a/resources/css', file:'ext-all-gray.css']
     }
 
-    extjsGray {
-        dependsOn 'extjs'
-        resource url: [plugin:'extjs', dir:'js/ext/resources/css', file:'ext-all-gray.css']
-    }
-
-    extjs_min {
-        resource url: [plugin:'extjs', dir:'js/ext', file:'ext-all.js']
-    }
-
-    extjs_gray_min {
-        dependsOn 'extjs_min'
-        resource url: [plugin:'extjs', dir:'js/ext/resources/css', file:'ext-all-gray.css']
+    extjs_4_1_1a_min {
+        resource url: [plugin:'extjs', dir:'ext-4.1.1a', file:'ext-all.js']
+        resource url: [plugin:'extjs', dir:'ext-4.1.1a/resources/css', file:'ext-all.css']
     }
 }

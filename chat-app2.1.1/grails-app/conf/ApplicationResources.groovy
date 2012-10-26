@@ -4,7 +4,7 @@ modules = {
     }
 
     common {
-        dependsOn 'cometd, extjsGray'
+        dependsOn 'cometd, extjs_4_1_1a_min'
         resource url: "secure/all/js/PublicChat/common/comet/Handshake.js"
         resource url: "secure/all/js/PublicChat/common/comet/CanSub.js"
         resource url: "secure/all/js/PublicChat/common/model/Message.js"
