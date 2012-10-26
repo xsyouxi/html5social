@@ -124,7 +124,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/static/bundle-bundle_desktop_defer.min.js':                ['IS_AUTHENTICATED_FULLY'],
 
         // Public
-        '/register/**':                                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/register/**':                                              ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/login/**':                                                 ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/logout/**':                                                ['IS_AUTHENTICATED_ANONYMOUSLY'],
 

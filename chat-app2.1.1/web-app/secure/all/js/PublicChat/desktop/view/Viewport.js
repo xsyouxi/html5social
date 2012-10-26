@@ -39,7 +39,7 @@ Ext.define('PublicChat.desktop.view.Viewport', {
                     xtype: 'user-tab'
                 },
                 {
-                    title: "Talk Hot Topic (Alpha)" ,
+                    title: "Chat Topics (Alpha)" ,
                     region: 'north',
                     layout: 'fit',
                     height: 50,

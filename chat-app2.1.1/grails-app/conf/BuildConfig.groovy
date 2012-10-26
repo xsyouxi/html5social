@@ -71,5 +71,8 @@ grails.project.dependency.resolution = {
     // Cometd Plugin
     grails.plugin.location.'cometd-plugin' = "../grails-cometd"
 
+    // Jasmine Resources
+  //  grails.plugin.location.'jasmine-plugin' = "../grails-jasmine"
+
 
 }

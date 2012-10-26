@@ -22,19 +22,19 @@ CometD and the Bayeux protocol.
   <dependencies />
   <plugins>
     <compile>
-      <plugin group='org.grails.plugins' name='cache' version='1.0.0' />
-      <plugin group='org.grails.plugins' name='jquery-ui' version='1.8.7' />
       <plugin group='org.grails.plugins' name='mail' version='1.0' />
-      <plugin group='org.grails.plugins' name='famfamfam' version='1.0' />
+      <plugin group='org.grails.plugins' name='jquery-ui' version='1.8.7' />
+      <plugin group='org.grails.plugins' name='cache' version='1.0.0' />
       <plugin group='org.grails.plugins' name='spring-security-ui' version='0.2' />
+      <plugin group='org.grails.plugins' name='famfamfam' version='1.0' />
     </compile>
     <runtime>
-      <plugin group='org.grails.plugins' name='jquery' version='1.8.0' />
+      <plugin group='org.grails.plugins' name='yui-minify-resources' version='0.1.5' />
       <plugin group='org.grails.plugins' name='resources' version='1.2.RC2' />
       <plugin group='org.grails.plugins' name='spring-security-core' version='1.2.3' />
-      <plugin group='org.grails.plugins' name='hibernate' version='2.1.1' />
-      <plugin group='org.grails.plugins' name='yui-minify-resources' version='0.1.5' />
       <plugin group='org.grails.plugins' name='database-migration' version='1.1' />
+      <plugin group='org.grails.plugins' name='jquery' version='1.8.0' />
+      <plugin group='org.grails.plugins' name='hibernate' version='2.1.1' />
     </runtime>
   </plugins>
   <runtimePluginRequirements />

@@ -1,0 +1,8 @@
+<plugin name='grails-jasmine' version='0.1' grailsVersion='2.1 &gt; *'>
+  <author>Your name</author>
+  <title>Grails Jasmine Plugin</title>
+  <description>Brief summary/description of the plugin.
+</description>
+  <documentation>http://grails.org/plugin/grails-jasmine</documentation>
+  <type>GrailsJasmineGrailsPlugin</type>
+  <resources
