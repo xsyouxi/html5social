@@ -100,7 +100,10 @@ grails.plugins.springsecurity.rejectIfNoRule = true
 grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugins.springsecurity.interceptUrlMap = [
         // Admins
-        '/user/**':                                                  ['ROLE_ADMIN'],
+        '/user/**':                                                   ['ROLE_ADMIN'],
+        '/static/bundle-bundle_spring-security-ui_head.min.css':      ['ROLE_ADMIN'],
+        '/static/bundle-bundle_spring-security-ui_defer.min.js':      ['ROLE_ADMIN'],
+        '/static/bundle-bundle_ajax-login_defer.min.js':              ['ROLE_ADMIN'],
 
         // Users:
         '/cometd':                                                   ['IS_AUTHENTICATED_FULLY'],
