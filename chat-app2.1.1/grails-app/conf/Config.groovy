@@ -109,12 +109,14 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/cometd':                                                   ['IS_AUTHENTICATED_FULLY'],
         '/cometd/handshake':                                         ['IS_AUTHENTICATED_FULLY'],
         '/':                                                         ['IS_AUTHENTICATED_FULLY'],
+        '/touch':                                                         ['IS_AUTHENTICATED_FULLY'],
 
         '/secure/**':                                                ['IS_AUTHENTICATED_FULLY'],
         '/js/**':                                                    ['IS_AUTHENTICATED_FULLY'],
         '/css/**':                                                   ['IS_AUTHENTICATED_FULLY'],
         '/images/**':                                                ['IS_AUTHENTICATED_FULLY'],
         '/plugins/cometd-0.2.4/**':                                  ['IS_AUTHENTICATED_FULLY'],
+        '/plugins/grails-touch-0.1/**':                              ['IS_AUTHENTICATED_FULLY'],
         '/plugins/extjs-0.1/**':                                     ['IS_AUTHENTICATED_FULLY'],
 
         '/static/js/**':                                             ['IS_AUTHENTICATED_FULLY'],

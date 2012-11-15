@@ -21,7 +21,7 @@ class BootStrap {
     def init = { servletContext ->
         initBayeux()
         println "Bayeux init......"
-        //createUsers()
+        createUsers()
         println "Users created...."
         println "Allowed Transports"
         bayeux.setAllowedTransports(["websocket", "callback-polling", "long-polling"])
