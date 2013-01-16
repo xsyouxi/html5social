@@ -1,0 +1,5 @@
+package rpg
+
+class Player {
+
+}

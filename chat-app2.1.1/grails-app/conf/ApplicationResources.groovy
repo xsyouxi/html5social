@@ -18,7 +18,7 @@ modules = {
 
     desktop {
         dependsOn 'common'
-        resource url: 'secure/all/js/PublicChat/runDesktop.js'
+        resource url: 'secure/all/js/PublicChat/initChat.js'
         resource url: 'secure/all/js/PublicChat/desktop/controller/handlers/CanPrintMessage.js'
         resource url: 'secure/all/js/PublicChat/desktop/controller/handlers/CanUpdateUserList.js'
         resource url: 'secure/all/js/PublicChat/desktop/controller/PrivateMessageOutputController.js'
@@ -32,5 +32,19 @@ modules = {
         resource url: 'secure/all/js/PublicChat/desktop/view/UserListView.js'
         resource url: 'secure/all/js/PublicChat/desktop/view/UserTabView.js'
         resource url: 'secure/all/js/PublicChat/desktop/view/Viewport.js'
+    }
+
+    home {
+        dependsOn 'extjs_4_1_1a_min'
+        resource url: 'secure/all/js/initDesktop.js'
+        resource url: 'secure/all/js/Home/view/Viewport.js'
+        resource url: 'secure/all/js/Home/view/ChannelView.js'
+        resource url: 'secure/all/js/Home/controller/ViewportController.js'
+        resource url: 'secure/all/js/PublicChat/desktop/view/TopicListView.js'
+        resource url: 'secure/all/js/Rpg/view/RpgChannelView.js'
+        resource url: 'secure/all/js/Home/view/MainTabView.js'
+        resource url: 'secure/all/js/PublicChat/desktop/view/UserListView.js'
+        resource url: 'secure/all/js/Home/view/MainToolbar.js'
+        resource url: 'secure/all/js/PublicChat/view/MainChatView.js'
     }
 }

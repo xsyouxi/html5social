@@ -1,9 +1,10 @@
 Ext.define("PublicChat.desktop.view.TopicListView", {
     extend: "Ext.grid.Panel",
     xtype: 'topic-grid',
+    title: "Chat Rooms",
     columns: [
         {
-            header: 'Hot topics',
+            header: 'Topics',
             dataIndex: 'displayTopic',
             flex: true,
             hideable: false,
