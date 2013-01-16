@@ -2,7 +2,7 @@
 <html>
 <head>
     <g:render template="/shared/javaScriptUtil" />
-    <g:javascript library="home"/>
+    <g:javascript library="init"/>
     <r:layoutResources/>
 </head>
 <body>
