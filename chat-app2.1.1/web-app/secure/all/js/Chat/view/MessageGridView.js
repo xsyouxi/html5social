@@ -1,4 +1,4 @@
-Ext.define("PublicChat.view.MessageGridView", {
+Ext.define("Chat.view.MessageGridView", {
     extend: "Ext.grid.Panel",
     xtype: "message-grid",
     columns: [
