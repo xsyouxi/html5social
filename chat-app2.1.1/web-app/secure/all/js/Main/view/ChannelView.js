@@ -1,4 +1,4 @@
-Ext.define('Home.view.ChannelView', {
+Ext.define('Main.view.ChannelView', {
     extend:'Ext.panel.Panel',
     xtype:"channel-view",
     title: "Channels",

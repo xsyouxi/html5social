@@ -21,10 +21,8 @@ modules = {
         resource url: 'secure/all/js/Chat/model/Message.js'
         resource url: 'secure/all/js/Chat/model/Topic.js'
         resource url: 'secure/all/js/Chat/model/User.js'
-        resource url: 'secure/all/js/Chat/handlers/LogoutHandler.js'
         resource url: 'secure/all/js/Chat/controller/handlers/CanPrintMessage.js'
         resource url: 'secure/all/js/Chat/controller/handlers/CanUpdateUserList.js'
-        resource url: 'secure/all/js/Chat/controller/LogoutController.js'
         resource url: 'secure/all/js/Chat/controller/PrivateMessageOutputController.js'
         resource url: 'secure/all/js/Chat/controller/TopicGridController.js'
         resource url: 'secure/all/js/Chat/controller/TopicInputController.js'
@@ -33,10 +31,11 @@ modules = {
     }
 
     home {
-        resource url: 'secure/all/js/Home/view/Viewport.js'
-        resource url: 'secure/all/js/Home/view/ChannelView.js'
-        resource url: 'secure/all/js/Home/controller/ViewportController.js'
-        resource url: 'secure/all/js/Home/view/MainTabView.js'
+        resource url: 'secure/all/js/Main/view/Viewport.js'
+        resource url: 'secure/all/js/Main/view/ChannelView.js'
+        resource url: 'secure/all/js/Main/controller/LogoutController.js'
+        resource url: 'secure/all/js/Main/logout/LogoutHandler.js'
+        resource url: 'secure/all/js/Main/view/MainTabView.js'
     }
 
     init {

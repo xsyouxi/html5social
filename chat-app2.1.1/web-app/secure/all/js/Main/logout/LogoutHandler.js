@@ -1,4 +1,4 @@
-Ext.define('Chat.handlers.LogoutHandler', {
+Ext.define('Main.logout.LogoutHandler', {
 
     logout: function () {
         window.location = "logout";

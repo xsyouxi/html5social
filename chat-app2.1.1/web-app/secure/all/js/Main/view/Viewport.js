@@ -1,4 +1,4 @@
-Ext.define('Home.view.Viewport', {
+Ext.define('Main.view.Viewport', {
     extend:"Ext.container.Viewport",
     layout:'border',
     items:[
