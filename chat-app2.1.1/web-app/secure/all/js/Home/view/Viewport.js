@@ -15,6 +15,10 @@ Ext.define('Home.view.Viewport', {
                     width: 200,
                     xtype: "channel-view",
                     collapsible : true
+                },
+                {
+                    region: 'north',
+                    xtype: "main-toolbar"
                 }
             ]
         },
