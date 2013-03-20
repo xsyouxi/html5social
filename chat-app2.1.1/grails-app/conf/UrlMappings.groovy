@@ -9,8 +9,7 @@ class UrlMappings {
 
 		"/home"(view:"/index")
 		"500"(view:'/error')
-        "/"(controller:"jsClientLoader", action:"home")
-        "/chat"(controller:"jsClientLoader", action:"desktop")
+        "/"(controller:"jsClientLoader", action:"desktop")
         "/login"(controller:"login", action:"auth")
         "/test"(controller:"jsClientLoaderTest", action:"index")
 	}
