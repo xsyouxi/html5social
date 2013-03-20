@@ -1,4 +1,4 @@
-Ext.define('Main.view.MainTabView', {
+Ext.define('Home.view.MainTabView', {
     extend:'Ext.tab.Panel',
     xtype:"main-tab-view",
     items:[
@@ -23,8 +23,7 @@ Ext.define('Main.view.MainTabView', {
                     {
                         text: "Log Out: " + JavaScriptUtil.system.currentUser,
                         icon: "http://cdn1.iconfinder.com/data/icons/glaze/16x16/actions/exit.png"
-                    }
-                ]
+                    }                ]
             })
         }]
     }
