@@ -33,4 +33,12 @@ modules = {
         resource url: 'secure/all/js/PublicChat/desktop/view/UserTabView.js'
         resource url: 'secure/all/js/PublicChat/desktop/view/Viewport.js'
     }
+
+    touch {
+        dependsOn 'touch_2_1_0_min'
+        resource url: 'secure/all/js/Ext/ux/touch/SwipeTabs.js'
+        resource url: 'secure/all/js/PublicChat/touch/view/Main.js'
+        resource url: 'secure/all/js/PublicChat/runTouch.js'
+    }
+
 }

@@ -4,4 +4,6 @@ class JsClientLoaderController {
 
     def desktop = {}
 	
+	def touch = {}
+
 }
