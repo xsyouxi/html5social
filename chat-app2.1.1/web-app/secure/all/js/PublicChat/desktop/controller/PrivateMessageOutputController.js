@@ -8,10 +8,10 @@ Ext.define('PublicChat.desktop.controller.PrivateMessageOutputController', {
         }
     ],
 
-    mixins: {
-            canPrintMessage: 'PublicChat.desktop.controller.handlers.CanPrintMessage',
-            canSub: 'PublicChat.common.comet.CanSub'
-    },
+    mixins: [
+        'PublicChat.desktop.controller.handlers.CanPrintMessage',
+        'PublicChat.common.comet.CanSub'
+    ],
 
     init: function() {
         this.privateChannel = this.subscribe({

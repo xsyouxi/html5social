@@ -16,17 +16,13 @@ Ext.application({
             // TODO remove chat service and replace with mixins
             chatService = Ext.create("PublicChat.common.service.ChatService");
 
-            topicInputController = Ext.create("PublicChat.desktop.controller.TopicInputController", {
-                chatService: chatService
-            });
+            topicInputController = Ext.create("PublicChat.desktop.controller.TopicInputController");
 
             privateMessageOutputController = Ext.create("PublicChat.desktop.controller.PrivateMessageOutputController", {
                 chatService: chatService
             });
 
-            topicGridController = Ext.create("PublicChat.desktop.controller.TopicGridController", {
-                chatService: chatService
-            });
+            topicGridController = Ext.create("PublicChat.desktop.controller.TopicGridController");
 
             userTabController = Ext.create("PublicChat.desktop.controller.UserTabController", {
                 chatService: chatService

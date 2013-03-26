@@ -9,6 +9,8 @@ modules = {
         resource url: "secure/all/js/PublicChat/common/comet/CanSub.js"
         resource url: "secure/all/js/PublicChat/common/model/Message.js"
         resource url: "secure/all/js/PublicChat/common/model/Topic.js"
+        resource url: "secure/all/js/PublicChat/common/comet/PublicChannel.js"
+        resource url: "secure/all/js/PublicChat/common/comet/Channels.js"
         resource url: "secure/all/js/PublicChat/common/store/TopicStoreListener.js"
         resource url: "secure/all/js/PublicChat/common/model/User.js"
         resource url: "secure/all/js/PublicChat/common/service/ChatService.js"

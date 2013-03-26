@@ -20,9 +20,9 @@ Ext.define('PublicChat.desktop.controller.UserTabController', {
         }
     ],
 
-    mixins: {
-        canPrintMessage: 'PublicChat.desktop.controller.handlers.CanPrintMessage'
-    },
+    mixins: [
+        'PublicChat.desktop.controller.handlers.CanPrintMessage'
+    ],
 
     addKeyUpHandlerHandler: function (tabPanel, textField, index, eOpts) {
         textField.on("keyup", this.submitPrivateMessage, this);

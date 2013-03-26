@@ -15,11 +15,11 @@ Ext.define("PublicChat.desktop.controller.TopicInputController", {
         }
     ],
 
-    mixins: {
-        canPrintMessage: 'PublicChat.desktop.controller.handlers.CanPrintMessage',
-        canUpdateUserList:  'PublicChat.desktop.controller.handlers.CanUpdateUserList',
-        canSub: 'PublicChat.common.comet.CanSub'
-    },
+    mixins: [
+        'PublicChat.desktop.controller.handlers.CanPrintMessage',
+        'PublicChat.desktop.controller.handlers.CanUpdateUserList',
+        'PublicChat.common.comet.CanSub'
+    ],
 
     publicChannelHandler: function (message) {
        this.updateUserList(message);
@@ -43,13 +43,13 @@ Ext.define("PublicChat.desktop.controller.TopicInputController", {
         this.publicChannel = this.subscribe({
             handler: this.publicChannelHandler,
             sub: this.publicChannel,
-            topic: this.chatService.getPublicChannel(),
+            topic: PublicChat.common.comet.Channels.MESSAGE_CHANNEL + PublicChat.common.comet.PublicChannel.topicId,
             scope: this
         });
     },
 
     setTopic: function () {
-        this.chatService.setTopic(this.topicBuffer);
+        PublicChat.common.comet.PublicChannel.setChannel(this.topicBuffer);
         this.updatePublicChannel();
     },
 
@@ -67,7 +67,7 @@ Ext.define("PublicChat.desktop.controller.TopicInputController", {
     sub: function () {
         this.privateChannel = this.subscribe({
             handler: this.printPrivateMessage,
-            topic: this.chatService.getUserChannel() + "/sessionUpdatex`",
+            topic: PublicChat.common.comet.Channels.PRIVATE_CHANNEL  + JavaScriptUtil.system.currentUser + "/sessionUpdatex`",
             scope: this,
             sub: this.privateChannel
         });
