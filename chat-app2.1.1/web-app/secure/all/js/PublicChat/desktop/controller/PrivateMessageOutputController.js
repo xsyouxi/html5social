@@ -16,7 +16,7 @@ Ext.define('PublicChat.desktop.controller.PrivateMessageOutputController', {
     init: function() {
         this.privateChannel = this.subscribe({
             handler: this.printPrivateMessage,
-            topic: this.chatService.getUserChannel(),
+            topic: PublicChat.common.comet.Channels.PRIVATE_CHANNEL  + JavaScriptUtil.system.currentUser,
             scope: this,
             sub: this.privateChannel
         });

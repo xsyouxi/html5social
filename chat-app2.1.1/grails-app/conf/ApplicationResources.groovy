@@ -13,7 +13,6 @@ modules = {
         resource url: "secure/all/js/PublicChat/common/comet/Channels.js"
         resource url: "secure/all/js/PublicChat/common/store/TopicStoreListener.js"
         resource url: "secure/all/js/PublicChat/common/model/User.js"
-        resource url: "secure/all/js/PublicChat/common/service/ChatService.js"
         resource url: "secure/all/js/PublicChat/common/store/UserStore.js"
         resource url: "secure/all/js/PublicChat/common/handlers/LogoutHandler.js"
     }
