@@ -8,13 +8,6 @@ Ext.define("PublicChat.common.service.ChatService", {
         return PublicChat.common.comet.Channels.PRIVATE_CHANNEL  + JavaScriptUtil.system.currentUser;
     },
 
-    constructor:function (config) {
-        // TODO Create UserStoreListener and remove logic from ChatService.
-        this.userList = Ext.create('PublicChat.common.store.UserStore', {
-            storeId:"user-store"
-        });
-    },
-
     formatForSendMessage:function (message) {
         return {message:message};
     },
@@ -32,26 +25,6 @@ Ext.define("PublicChat.common.service.ChatService", {
         } else {
             return false;
         }
-    },
-
-    getMessage:function (message) {
-        message = Ext.create("PublicChat.common.model.Message", {
-            username:message.username,
-            message:message.message
-        });
-        return message;
-    },
-
-    updateUserList:function (userList) {
-        var users = [];
-        Ext.each(userList, function (user, index, allItems) {
-            users.push(
-                Ext.create("PublicChat.common.model.User", {
-                    username:user.username
-                })
-            );
-        }, this);
-        this.userList.loadRecords(users);
     }
 
 });

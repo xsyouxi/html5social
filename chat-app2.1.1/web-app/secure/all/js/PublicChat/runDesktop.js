@@ -36,6 +36,10 @@ Ext.application({
                 storeId: "topic-store"
             });
 
+            Ext.create('PublicChat.common.store.UserStore', {
+                storeId:"user-store"
+            });
+
 
             var logoutController = Ext.create("PublicChat.desktop.controller.LogoutController");
 
