@@ -35,8 +35,4 @@ modules = {
         resource url: 'secure/all/js/PublicChat/desktop/view/Viewport.js'
     }
 
-    touch {
-        dependsOn 'touch_2_1_0_min'
-    }
-
 }

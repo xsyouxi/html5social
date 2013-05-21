@@ -106,6 +106,10 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/static/bundle-bundle_ajax-login_defer.min.js':              ['ROLE_ADMIN'],
 
         // Users:
+        '/chat/**':                                            ['IS_AUTHENTICATED_FULLY'],
+        '/pvp_widget/**':                                            ['IS_AUTHENTICATED_FULLY'],
+        '/chat_widget/**':                                           ['IS_AUTHENTICATED_FULLY'],
+        '/widget_search/**':                                         ['IS_AUTHENTICATED_FULLY'],
         '/cometd':                                                   ['IS_AUTHENTICATED_FULLY'],
         '/cometd/handshake':                                         ['IS_AUTHENTICATED_FULLY'],
         '/':                                                         ['IS_AUTHENTICATED_FULLY'],

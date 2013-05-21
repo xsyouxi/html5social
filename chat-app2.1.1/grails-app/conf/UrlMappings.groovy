@@ -7,11 +7,10 @@ class UrlMappings {
 			}
 		}
 
-		"/home"(view:"/index")
+		"/"(view:"/chat")
 		"500"(view:'/error')
-        "/"(controller:"jsClientLoader", action:"desktop")
-        "/touch"(controller:"jsClientLoader", action:"touch")
         "/login"(controller:"login", action:"auth")
-        "/test"(controller:"jsClientLoaderTest", action:"index")
+        "/game"(view:"/game")
+        "/chat"(view:"/chat")
 	}
 }
